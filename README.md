@@ -35,7 +35,9 @@
        
        NSRange range = [mulStr rangeOfString:YOURSTR];
        
-       if (range.location >= 1 && [[mulStr substringWithRange:NSMakeRange(range.location - 1, 1)] isEqualToString:@" "] && [[mulStr substringWithRange:NSMakeRange(range.location + range.length, 1)] isEqualToString:@" "]) {
+       if (range.location >= 1 
+       && [[mulStr substringWithRange:NSMakeRange(range.location - 1, 1)] isEqualToString:@" "] 
+       && [[mulStr substringWithRange:NSMakeRange(range.location + range.length, 1)] isEqualToString:@" "]) {
        
             [mulStr replaceCharactersInRange:NSMakeRange(range.location - 1, range.length + 2) withString:YOURSTR];
             
