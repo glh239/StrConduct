@@ -24,15 +24,27 @@
     NSLog(@"处理前:%@",str);
     
     NSLog(@"处理后:%@",[self stringConductWithStr:str]);
+    
 }
+
 - (NSString *)stringConductWithStr:(NSString *)str{
+
     NSMutableString *mulStr = [[NSMutableString alloc] initWithString:str];
+    
     if ([str containsString:YOURSTR]) {
-        NSRange range = [mulStr rangeOfString:YOURSTR];
-        if (range.location >= 1 && [[mulStr substringWithRange:NSMakeRange(range.location - 1, 1)] isEqualToString:@" "] && [[mulStr substringWithRange:NSMakeRange(range.location + range.length, 1)] isEqualToString:@" "]) {
+       
+       NSRange range = [mulStr rangeOfString:YOURSTR];
+       
+       if (range.location >= 1 && [[mulStr substringWithRange:NSMakeRange(range.location - 1, 1)] isEqualToString:@" "] && [[mulStr substringWithRange:NSMakeRange(range.location + range.length, 1)] isEqualToString:@" "]) {
+       
             [mulStr replaceCharactersInRange:NSMakeRange(range.location - 1, range.length + 2) withString:YOURSTR];
+            
         }
+        
     }
+    
     return [NSString stringWithFormat:@"%@",mulStr];
+    
 }
+
 @end
